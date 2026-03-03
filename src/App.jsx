@@ -965,9 +965,7 @@ const Podium = ({team,total,equips,onRestart,snd})=>{
     </div>
   );
 };
-    </div>
-  );
-};
+
 
 // ═══════════════════════════════════════════════════════
 //  MAIN APP
