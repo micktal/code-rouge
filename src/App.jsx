@@ -432,8 +432,8 @@ const TeamScreen = ({onPick,snd})=>{
 const VHSIntro = ({onEnd,snd})=>{
   const [ph,setPh]=useState(0);
   useEffect(()=>{
-    snd.siren();
-    const ts=[setTimeout(()=>setPh(1),2500),setTimeout(()=>{setPh(2);snd.err();},4500),setTimeout(()=>setPh(3),6500),setTimeout(()=>{setPh(4);snd.siren();},8500),setTimeout(onEnd,12000)];
+    try{snd.siren();}catch(e){}
+    const ts=[setTimeout(()=>setPh(1),1500),setTimeout(()=>{setPh(2);try{snd.err();}catch(e){}},3000),setTimeout(()=>setPh(3),4500),setTimeout(()=>{setPh(4);try{snd.siren();}catch(e){}},6000),setTimeout(onEnd,8000)];
     return()=>ts.forEach(clearTimeout);
   },[onEnd,snd]);
   const cams=[{n:"ACCUEIL",i:"🏢"},{n:"OPEN SPACE",i:"💻"},{n:"COULOIR 3E",i:"🚶"},{n:"PARKING",i:"🚗"}];
